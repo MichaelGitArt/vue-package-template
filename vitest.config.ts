@@ -10,8 +10,8 @@ export default defineConfig({
       dts: 'tests/auto-imports.d.ts',
     }),
   ],
+
   test: {
-    global: true,
     environment: 'happy-dom',
   },
 })

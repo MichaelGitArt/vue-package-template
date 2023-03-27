@@ -13,4 +13,7 @@
     "windicss",
     "vitejs"
   ],
+  "stylelint.validate": [
+    "vue"
+  ]
 }

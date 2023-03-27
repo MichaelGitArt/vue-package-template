@@ -1,4 +1,5 @@
 import path from 'path'
+
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
@@ -16,7 +17,7 @@ export default defineConfig({
       imports: [
         'vue',
         // {
-        //   'component-path': [
+        //   'lib-dev-path': [
         //     'dialogInjectionKey',
         //     ['plugin', 'dialogPlugin'],
         //   ],
@@ -27,10 +28,14 @@ export default defineConfig({
     Components({
       resolvers: [
         (name: string) => {
+          console.warn('name', name)
           if ([
             'AComponent',
           ].includes(name))
-            return { importName: name, path: 'component-path' }
+            return {
+              name,
+              from: 'lib-dev-path',
+            }
 
           return null
         },
@@ -51,7 +56,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      'component-path': resolve('../src/index.ts'),
+      'lib-dev-path': resolve('../src/index.ts'),
     },
   },
 

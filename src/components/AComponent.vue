@@ -10,7 +10,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <div>
+  <div class="a-component">
     AComponent
   </div>
 </template>
+
+<style lang="scss" scoped>
+.a-component {
+  background-color: red;
+}
+</style>
